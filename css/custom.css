@@ -36,32 +36,37 @@ body {
   background-color: var(--primary-bg);
   color: var(--primary-text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* Removido padding-top aqui para acomodar a splash screen que é `fixed` */
-  /* padding-top: var(--navbar-height); */
   overflow-x: hidden; /* Garante que não haja scroll horizontal indesejado */
+  /* Removido padding-top aqui para acomodar a splash screen que é `fixed` */
+}
+
+/* Adiciona padding-top ao body para evitar que o conteúdo fique abaixo do navbar */
+/* Isso é essencial depois que a splash screen desaparece */
+body:not(.splash-active) {
+  padding-top: var(--navbar-height);
 }
 
 @media (min-width: 768px) {
-  body {
+  body:not(.splash-active) {
     padding-top: var(--navbar-height-lg);
   }
 }
 
 /* NOVA SEÇÃO: Splash/Introdução */
 .intro-splash-section {
-  background-color: var(--secondary-bg); /* Seu vermelho sangue escuro */
-  height: 100vh; /* Ocupa a altura total da viewport */
-  width: 100%; /* Ocupa a largura total da viewport */
-  display: flex; /* Para centralizar o conteúdo */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  position: fixed; /* Fixa no topo para sobrepor tudo */
+  background-color: var(--secondary-bg);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999; /* Garante que fique acima de todos os outros elementos */
-  opacity: 1; /* Inicia totalmente visível */
+  z-index: 9999;
+  opacity: 1;
   visibility: visible;
-  transition: opacity 1s ease-out, visibility 1s ease-out; /* Transição suave para o fade-out */
+  transition: opacity 1s ease-out, visibility 1s ease-out;
 }
 
 .intro-splash-section.fade-out {
@@ -70,28 +75,21 @@ body {
 }
 
 .splash-logo {
-  max-width: 100%; /* Limita o tamanho do GIF */
-  max-height: 100%; /* Limita a altura do GIF */
-  object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 /* Navbar */
 .navbar {
   background-color: var(--primary-bg) !important;
   border-bottom: 1px solid var(--border-shadow);
-  z-index: 1030; /* Garante que a navbar fique acima de outros elementos */
+  z-index: 1030;
 }
 
-/* Se você decidir voltar a usar texto, ajuste este CSS: */
-/* .navbar-brand .d-flex.flex-column span {
-    line-height: 1;
-} */
-
-/* Ajuste para a nova imagem de texto no navbar-brand */
 .navbar-brand .navbar-text-logo {
-  height: 48px; /* Mantém a altura para consistência */
-  width: auto; /* Ajusta a largura automaticamente */
-  /* Você pode adicionar max-width se ela ficar muito grande em telas muito largas */
+  height: 48px;
+  width: auto;
 }
 
 .nav-link {
@@ -103,75 +101,81 @@ body {
   color: var(--hover-action) !important;
 }
 
-/* Estilo base do ícone do hambúrguer (três barras) */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dadada' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  transition: background-image 0.3s ease-in-out; /* Adiciona transição para animação suave */
+  transition: background-image 0.3s ease-in-out;
 }
 
-/* Estilo para o ícone quando o menu está aberto (transforma em X) */
 .navbar-collapse.show + .navbar-toggler .navbar-toggler-icon,
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dadada' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M23 7L7 23M7 7l16 16'/%3e%3c/svg%3e") !important;
 }
 
-/* Estilo da borda do botão do toggler (opcional, mas bom para consistência) */
 .navbar-toggler {
   border-color: var(--border-shadow);
-  transition: all 0.3s ease-in-out; /* Transição geral para o botão */
+  transition: all 0.3s ease-in-out;
 }
 
-/* Estilo do botão do toggler quando ele está em foco (acessibilidade) */
 .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.25rem rgba(218, 218, 218, 0.5); /* Cor do contorno de foco, transparente */
+  box-shadow: 0 0 0 0.25rem rgba(218, 218, 218, 0.5);
 }
 
 /* Seções Gerais */
 section {
-  /* Não mais min-height, agora 'height' para ocupar exatamente o espaço */
-  height: calc(
-    100vh - var(--navbar-height)
-  ); /* Altura exata da viewport menos navbar */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   padding: 20px;
+  /* Em mobile, as seções devem ter altura automática para se ajustarem ao conteúdo */
+  min-height: auto;
+  height: auto;
 }
 
 @media (min-width: 768px) {
   section {
-    height: calc(100vh - var(--navbar-height-lg)); /* Ajusta para desktop */
+    min-height: calc(100vh - var(--navbar-height-lg));
+    height: auto; /* Permite que a altura cresça conforme o conteúdo */
     padding: 40px;
   }
 }
 
 /* Hero Section */
 .hero-section {
-  background-image: url("../assets/img/tomato_bg_red.jpg"); /* Fundo com imagem */
+  background-image: url("../assets/img/tomato_bg_red.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* display, align-items, justify-content já definidos na regra geral de 'section' */
+  /* A Home deve ter altura fixa para preencher a tela */
+  height: calc(100vh - var(--navbar-height));
+  min-height: calc(
+    100vh - var(--navbar-height)
+  ); /* Garante que não encolha demais */
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    height: calc(100vh - var(--navbar-height-lg));
+    min-height: calc(100vh - var(--navbar-height-lg));
+  }
 }
 
 .hero-content {
-  display: flex; /* Para controlar o alinhamento da imagem e do texto */
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centraliza o conteúdo verticalmente dentro da hero-content */
+  justify-content: center;
   text-align: center;
   padding: 20px;
   max-width: 800px;
   width: 100%;
-  height: 100%; /* Garante que hero-content ocupe a altura total da hero-section */
+  height: 100%; /* Hero content preenche a Hero section */
   box-sizing: border-box;
 }
 
-/* Estilo para o bloco de texto dentro do Hero */
 .hero-text-block {
-  background-color: #b00020; /* Fundo branco para o bloco de texto */
+  background-color: var(--primary-accent); /* Usando a variável */
   padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -179,8 +183,7 @@ section {
   max-width: 100%;
   box-sizing: border-box;
   color: var(--primary-text);
-  /* Adiciona max-height e overflow-y para evitar transbordamento em telas pequenas */
-  max-height: 40vh; /* Ajuste conforme necessário */
+  max-height: 60vh; /* Permite que o texto role se for muito longo */
   overflow-y: auto;
 }
 
@@ -195,7 +198,7 @@ section {
 .hero-section img {
   max-width: 90%;
   height: auto;
-  max-height: 40vh; /* Reduz a altura máxima da imagem para caber na tela */
+  max-height: 40vh; /* Limita a altura da imagem para não empurrar o conteúdo */
   object-fit: contain;
   margin-bottom: 20px;
 }
@@ -204,11 +207,11 @@ section {
   .hero-text-block {
     margin-top: 30px;
     padding: 30px 50px;
-    max-height: none; /* Remove limite de altura em telas maiores se desejar */
+    max-height: none; /* Remove limite de altura em telas maiores */
     overflow-y: visible;
   }
   .hero-section img {
-    max-height: 50vh; /* Ajusta para telas maiores */
+    max-height: 50vh;
     margin-bottom: 30px;
   }
 }
@@ -217,6 +220,7 @@ section {
 .games-carousel-section {
   background-color: var(--secondary-bg);
   padding: 40px 0;
+  overflow: hidden; /* Adicionado para garantir que nada vaze */
 }
 
 .games-carousel-section h2 {
@@ -228,11 +232,22 @@ section {
   max-width: 1200px;
 }
 
+.games-carousel-section .carousel-inner {
+  /* Não precisamos de display: flex aqui, o Bootstrap já lida com isso */
+}
+
+/* Removendo as regras que quebravam o carrossel */
+/* .games-carousel-section .carousel-item {
+  display: flex !important;
+  justify-content: center !important;
+} */
+
 .games-carousel-section .carousel-item .row {
   align-items: center;
   padding: 10px 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* Centraliza os elementos dentro da linha */
 }
 
 .games-carousel-section .carousel-item .img-fluid-custom {
@@ -241,6 +256,8 @@ section {
   object-fit: contain;
   margin-bottom: 20px;
   max-width: 100%;
+  border-radius: 8px; /* Mantém o border-radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Mantém a sombra */
 }
 
 .game-card {
@@ -253,9 +270,30 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 200px;
-  height: 100%;
+  min-height: auto; /* Permite altura automática em mobile */
+  height: auto; /* Permite altura automática em mobile */
   width: 100%;
+  max-width: 350px; /* Reduzindo um pouco mais a largura máxima do card para mobile */
+  margin: 0 auto; /* Centraliza o card em mobile */
+}
+
+/* Revertendo a mudança do carousel-caption, deixando o Bootstrap gerenciar */
+.games-carousel-section .carousel-caption {
+  /* D-none em mobile e d-md-block em desktop é controlado no HTML */
+  /* Não é necessário CSS extra a menos que você queira um estilo específico para ele aparecer */
+  padding: 0; /* Bootstrap já adiciona padding */
+  text-align: center;
+  color: white; /* Garante que o texto seja visível em backgrounds escuros */
+  /* Se você quiser um fundo para o caption em desktop: */
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.games-carousel-section .carousel-caption h5,
+.games-carousel-section .carousel-caption p {
+  margin-bottom: 5px;
 }
 
 .game-card .btn-primary {
@@ -292,12 +330,40 @@ section {
     align-items: center;
     justify-content: center;
   }
+  .game-card {
+    max-width: none; /* Remove a limitação de largura em desktop */
+    margin: 0; /* Remove a centralização em desktop */
+    min-height: 200px;
+    height: 100%;
+  }
+  /* Remove a necessidade de redefinir position e background-color para caption em desktop */
 }
 
 /* About Us Section */
 .about-section {
   background-color: var(--secondary-accent);
   padding: 40px 0;
+  /* Removendo height/min-height fixo aqui também */
+  min-height: auto;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .about-section {
+    padding: 60px 0;
+    min-height: calc(
+      100vh - var(--navbar-height-lg)
+    ); /* Volta a min-height em desktop */
+    height: auto;
+  }
+}
+
+.about-section .container {
+  /* Garante que o container não force uma largura maior que a tela */
+  /* Bootstrap's .container já é 100% largura em mobile e tem padding */
+  /* max-width: 100%; remova se já tem .container padrão do bootstrap */
+  /* padding-left: 20px; padding-right: 20px; já tem no section */
+  box-sizing: border-box;
 }
 
 .about-section img {
@@ -311,13 +377,21 @@ section {
 }
 
 @media (min-width: 768px) {
-  .about-section {
-    padding: 60px 0;
-  }
   .about-section img {
     margin-top: 0;
     max-height: 50vh;
     width: auto;
+  }
+}
+
+.about-section .row {
+  /* Permite que as colunas se empilhem corretamente em mobile */
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .about-section .row {
+    flex-direction: row; /* Volta ao layout de linha em telas maiores */
   }
 }
 
