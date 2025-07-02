@@ -128,7 +128,8 @@ body {
 
 /* Seções Gerais */
 section {
-  min-height: calc(
+  /* Não mais min-height, agora 'height' para ocupar exatamente o espaço */
+  height: calc(
     100vh - var(--navbar-height)
   ); /* Altura exata da viewport menos navbar */
   display: flex;
@@ -141,7 +142,7 @@ section {
 
 @media (min-width: 768px) {
   section {
-    min-height: calc(100vh - var(--navbar-height-lg));
+    height: calc(100vh - var(--navbar-height-lg)); /* Ajusta para desktop */
     padding: 40px;
   }
 }
@@ -152,25 +153,25 @@ section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* display, align-items, justify-content já definidos na regra geral de 'section' */
 }
 
 .hero-content {
-  display: flex;
+  display: flex; /* Para controlar o alinhamento da imagem e do texto */
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Centraliza o conteúdo verticalmente dentro da hero-content */
   text-align: center;
   padding: 20px;
   max-width: 800px;
   width: 100%;
+  height: 100%; /* Garante que hero-content ocupe a altura total da hero-section */
+  box-sizing: border-box;
 }
 
 /* Estilo para o bloco de texto dentro do Hero */
 .hero-text-block {
   background-color: #b00020; /* Fundo branco para o bloco de texto */
-
   padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -178,6 +179,9 @@ section {
   max-width: 100%;
   box-sizing: border-box;
   color: var(--primary-text);
+  /* Adiciona max-height e overflow-y para evitar transbordamento em telas pequenas */
+  max-height: 40vh; /* Ajuste conforme necessário */
+  overflow-y: auto;
 }
 
 .hero-text-block h1 {
@@ -188,16 +192,10 @@ section {
   line-height: 1.6;
 }
 
-/* Removido regras de text-dark, pois o texto agora está no hero-text-block */
-/* .hero-section h1.text-dark,
-.hero-section p.text-dark {
-   color: black !important;
-} */
-
 .hero-section img {
   max-width: 90%;
   height: auto;
-  max-height: 50vh;
+  max-height: 40vh; /* Reduz a altura máxima da imagem para caber na tela */
   object-fit: contain;
   margin-bottom: 20px;
 }
@@ -206,9 +204,11 @@ section {
   .hero-text-block {
     margin-top: 30px;
     padding: 30px 50px;
+    max-height: none; /* Remove limite de altura em telas maiores se desejar */
+    overflow-y: visible;
   }
   .hero-section img {
-    max-height: 60vh;
+    max-height: 50vh; /* Ajusta para telas maiores */
     margin-bottom: 30px;
   }
 }
