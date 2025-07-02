@@ -232,16 +232,6 @@ section {
   max-width: 1200px;
 }
 
-.games-carousel-section .carousel-inner {
-  /* Não precisamos de display: flex aqui, o Bootstrap já lida com isso */
-}
-
-/* Removendo as regras que quebravam o carrossel */
-/* .games-carousel-section .carousel-item {
-  display: flex !important;
-  justify-content: center !important;
-} */
-
 .games-carousel-section .carousel-item .row {
   align-items: center;
   padding: 10px 0;
