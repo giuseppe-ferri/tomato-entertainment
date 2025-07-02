@@ -1,1 +1,137 @@
-<h1>hello bitch!</h1>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Entertainment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid justify-content-center justify-content-lg-between">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="/img/tomato_img.png" alt="Logo" width="56" height="48" class="me-2">
+                <div class="d-flex flex-column align-items-start">
+                    <span>Tomato</span>
+                    <span>Entertainment</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero-section">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#games-carousel-section">Jogos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-section">Sobre</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-section" class="hero-section">
+            <div class="container hero-content">
+                <img src="/img/hero_no.jpg" alt="Hero Image" class="img-fluid">
+                <h1 class="display-4 fw-bold text-dark">Tomato Entertainment</h1>
+                <p class="lead text-dark"><strong>Tomato Entertainment é uma empresa brasileira que desenvolve jogos independentes para computador e mobile.</strong></p>
+            </div>
+        </section>
+
+        <section id="games-carousel-section" class="games-carousel-section text-center py-5">
+            <div class="container">
+                <h2 class="display-5 fw-bold mb-5 text-primary-text">Nossos Jogos</h2>
+                <div id="gamesCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center align-items-center g-4">
+                                <div class="col-12 col-md-6">
+                                    <img src="/img/hotdog_simulator.jpg" class="d-block rounded shadow" alt="HotDog Simulator">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="game-card p-4">
+                                        <h3 class="card-title mb-3">HotDog Simulator</h3>
+                                        <p class="card-text mb-4 text-secondary-text">Prepare os melhores cachorros-quentes e gerencie seu próprio negócio neste divertido simulador!</p>
+                                        <a href="https://store.steampowered.com/?l=portuguese" target="_blank" class="btn btn-primary btn-lg mt-auto">Jogar agora</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center align-items-center g-4">
+                                <div class="col-12 col-md-6">
+                                    <img src="/img/flappy_space.jpg" class="d-block rounded shadow" alt="Flappy Space">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="game-card p-4">
+                                        <h3 class="card-title mb-3">Flappy Space</h3>
+                                        <p class="card-text mb-4 text-secondary-text">Voe pelo espaço e desvie de obstáculos neste viciante jogo mobile!</p>
+                                        <a href="https://play.google.com/store/apps?hl=pt_BR" target="_blank" class="btn btn-primary btn-lg mt-auto">Jogar agora</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row justify-content-center align-items-center g-4">
+                                <div class="col-12 col-md-6">
+                                    <img src="/img/monsters_dragons.jpg" class="d-block rounded shadow" alt="Monsters & Dragons">
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="game-card p-4">
+                                        <h3 class="card-title mb-3">Monsters & Dragons</h3>
+                                        <p class="card-text mb-4 text-secondary-text">Embarque em uma aventura épica com monstros e dragões neste RPG em desenvolvimento!</p>
+                                        <button class="btn btn-primary btn-lg disabled mt-auto" disabled>Em breve</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#gamesCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#gamesCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" class="about-section">
+            <div class="container">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-6 text-center text-lg-start">
+                        <h2 class="mb-4 text-white">Sobre Nós</h2>
+                        <p class="lead text-white">A Tomato Entertainment é uma empresa brasileira que desenvolve jogos independentes para computador e mobile. Nossa paixão é criar experiências inovadoras e envolventes para jogadores de todas as idades, com histórias cativantes e jogabilidade memorável.</p>
+                        <p class="lead text-white">Acreditamos no poder dos jogos para inspirar, entreter e conectar pessoas. Trabalhamos com dedicação para trazer à vida mundos digitais cheios de criatividade e desafios.</p>
+                    </div>
+                    <div class="col-12 col-lg-6 text-center">
+                        <img src="/img/sobre_nos.jpg" alt="Sobre Nós" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer text-center py-4">
+        <div class="container">
+            <h3 class="h5 mb-3">Contato</h3>
+            <p class="mb-1"><strong>Email:</strong> <a href="mailto:tomatoentertainment@tomatoent.com">tomatoentertainment@tomatoent.com</a></p>
+            <p class="mb-3"><strong>Instagram:</strong> <a href="https://www.instagram.com/tomato_entertainment_oficial/" target="_blank">@tomato_entertainment_oficial</a></p>
+            <hr class="my-4" style="border-color: var(--border-shadow);">
+            <p class="mb-0 text-secondary-text">&copy Copyright 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" defer crossorigin="anonymous"></script>
+</body>
+</html>
