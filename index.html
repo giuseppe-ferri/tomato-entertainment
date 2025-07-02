@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="css/custom.css" />
   </head>
   <body>
+    <section id="intro-splash-section" class="intro-splash-section">
+      <img
+        src="assets/img/TOMATO_no_white.gif"
+        alt="Tomato Entertainment Animated Logo"
+        class="img-fluid splash-logo"
+      />
+    </section>
+
     <header class="navbar navbar-expand-lg fixed-top">
       <div
         class="container-fluid justify-content-center justify-content-lg-between"
@@ -27,16 +35,12 @@
           />
           <img
             src="assets/img/TOMATO.png"
-            alt="Logo"
+            alt="Logo Tomato Entertainment Text"
             width="160"
             height="48"
-            class="me-2"
+            class="me-2 navbar-text-logo"
           />
-          <!-- <div class="d-flex flex-column align-items-start">
-            <span>Tomato</span>
-            <span>Entertainment</span>
-          </div> -->
-        </a>
+          </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -278,6 +282,18 @@
             }
           });
         });
+
+        // Script para a seção de splash desaparecer
+        const splashSection = document.getElementById('intro-splash-section');
+        if (splashSection) {
+            setTimeout(() => {
+                splashSection.classList.add('fade-out');
+                // Opcional: Remove o elemento do DOM completamente após a transição para liberar recursos
+                splashSection.addEventListener('transitionend', () => {
+                    splashSection.remove();
+                });
+            }, 3000); // Fades out after 3 seconds (3000 milliseconds). Ajuste este valor conforme necessário.
+        }
       });
     </script>
   </body>

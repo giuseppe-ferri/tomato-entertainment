@@ -36,9 +36,8 @@ body {
   background-color: var(--primary-bg);
   color: var(--primary-text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: var(
-    --navbar-height
-  ); /* Empurra todo o conteúdo para baixo da navbar */
+  /* Removido padding-top aqui para acomodar a splash screen que é `fixed` */
+  /* padding-top: var(--navbar-height); */
   overflow-x: hidden; /* Garante que não haja scroll horizontal indesejado */
 }
 
@@ -48,6 +47,34 @@ body {
   }
 }
 
+/* NOVA SEÇÃO: Splash/Introdução */
+.intro-splash-section {
+  background-color: var(--secondary-bg); /* Seu vermelho sangue escuro */
+  height: 100vh; /* Ocupa a altura total da viewport */
+  width: 100%; /* Ocupa a largura total da viewport */
+  display: flex; /* Para centralizar o conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  position: fixed; /* Fixa no topo para sobrepor tudo */
+  top: 0;
+  left: 0;
+  z-index: 9999; /* Garante que fique acima de todos os outros elementos */
+  opacity: 1; /* Inicia totalmente visível */
+  visibility: visible;
+  transition: opacity 1s ease-out, visibility 1s ease-out; /* Transição suave para o fade-out */
+}
+
+.intro-splash-section.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-logo {
+  max-width: 100%; /* Limita o tamanho do GIF */
+  max-height: 100%; /* Limita a altura do GIF */
+  object-fit: cover; /* Garante que a imagem se ajuste corretamente */
+}
+
 /* Navbar */
 .navbar {
   background-color: var(--primary-bg) !important;
@@ -55,8 +82,16 @@ body {
   z-index: 1030; /* Garante que a navbar fique acima de outros elementos */
 }
 
-.navbar-brand span {
-  color: var(--primary-text);
+/* Se você decidir voltar a usar texto, ajuste este CSS: */
+/* .navbar-brand .d-flex.flex-column span {
+    line-height: 1;
+} */
+
+/* Ajuste para a nova imagem de texto no navbar-brand */
+.navbar-brand .navbar-text-logo {
+  height: 48px; /* Mantém a altura para consistência */
+  width: auto; /* Ajusta a largura automaticamente */
+  /* Você pode adicionar max-width se ela ficar muito grande em telas muito largas */
 }
 
 .nav-link {
@@ -66,6 +101,29 @@ body {
 
 .nav-link:hover {
   color: var(--hover-action) !important;
+}
+
+/* Estilo base do ícone do hambúrguer (três barras) */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dadada' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  transition: background-image 0.3s ease-in-out; /* Adiciona transição para animação suave */
+}
+
+/* Estilo para o ícone quando o menu está aberto (transforma em X) */
+.navbar-collapse.show + .navbar-toggler .navbar-toggler-icon,
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dadada' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M23 7L7 23M7 7l16 16'/%3e%3c/svg%3e") !important;
+}
+
+/* Estilo da borda do botão do toggler (opcional, mas bom para consistência) */
+.navbar-toggler {
+  border-color: var(--border-shadow);
+  transition: all 0.3s ease-in-out; /* Transição geral para o botão */
+}
+
+/* Estilo do botão do toggler quando ele está em foco (acessibilidade) */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(218, 218, 218, 0.5); /* Cor do contorno de foco, transparente */
 }
 
 /* Seções Gerais */
@@ -90,77 +148,69 @@ section {
 
 /* Hero Section */
 .hero-section {
-    background-image: url('../assets/img/tomato_bg_red.jpg'); /* Fundo com imagem */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Certifique-se de que o hero-section tenha espaço suficiente para o conteúdo */
-    display: flex; /* Para centralizar o hero-content */
-    align-items: center;
-    justify-content: center;
+  background-image: url("../assets/img/tomato_bg_red.jpg"); /* Fundo com imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
-    /* Esta div hero-content agora serve como um contêiner flexível para a imagem e o bloco de texto */
-    display: flex;
-    flex-direction: column; /* Organiza a imagem e o bloco de texto um abaixo do outro */
-    align-items: center; /* Centraliza horizontalmente a imagem e o bloco de texto */
-    text-align: center; /* Centraliza o texto dentro do hero-content antes de o bloco de texto ter um fundo */
-    padding: 20px; /* Padding para o contêiner principal */
-    max-width: 800px; /* Limita a largura do conteúdo principal */
-    width: 100%; /* Garante que o contêiner principal ocupe a largura disponível */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
 }
 
-/* Novo estilo para o bloco de texto */
+/* Estilo para o bloco de texto dentro do Hero */
 .hero-text-block {
-    background-color: #eee; /* Fundo branco para o bloco de texto */
-    padding: 20px 30px; /* Adicione padding interno ao bloco */
-    border-radius: 8px; /* Cantos arredondados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra mais visível */
-    margin-top: 20px; /* Espaço entre a imagem e o bloco de texto */
-    max-width: 100%; /* Garante que não transborde */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
-    color: var(--primary-bg); /* Cor do texto dentro do bloco (preto profundo da sua paleta) */
+  background-color: #b00020; /* Fundo branco para o bloco de texto */
+
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  color: var(--primary-text);
 }
 
-/* Ajustes para o texto dentro do novo bloco */
 .hero-text-block h1 {
-    color: var(--primary-bg); /* Use a cor mais escura da sua paleta para o título */
-    margin-bottom: 10px; /* Espaço abaixo do título */
+  margin-bottom: 10px;
 }
 
 .hero-text-block p {
-    color: var(--secondary-bg); /* Use uma cor um pouco mais clara que o título, mas ainda escura */
-    line-height: 1.6; /* Melhora a legibilidade */
+  line-height: 1.6;
 }
 
-/* Remova ou ajuste estas regras, pois o texto agora está dentro de hero-text-block */
-.hero-section h1.text-dark,
+/* Removido regras de text-dark, pois o texto agora está no hero-text-block */
+/* .hero-section h1.text-dark,
 .hero-section p.text-dark {
-   /* Estes seletores não serão mais necessários se você removeu as classes text-dark do HTML */
-   /* Se mantiver text-dark em algum lugar, certifique-se de que esta regra não sobrescreva o que você quer */
-   color: black !important; /* Exemplo: force para preto se ainda usar text-dark e não quiser o primary-bg */
-}
+   color: black !important;
+} */
 
-/* Ajuste a largura da imagem para que ela não seja muito larga e fique centralizada */
 .hero-section img {
-    max-width: 90%;
-    height: auto;
-    max-height: 50vh;
-    object-fit: contain;
-    margin-bottom: 20px; /* Espaço abaixo da imagem, antes do bloco de texto */
+  max-width: 90%;
+  height: auto;
+  max-height: 50vh;
+  object-fit: contain;
+  margin-bottom: 20px;
 }
 
-/* Media query para telas maiores, se necessário, ajuste o margin-top */
 @media (min-width: 768px) {
-    .hero-text-block {
-        margin-top: 30px; /* Mais espaço em telas maiores, se desejar */
-        padding: 30px 50px; /* Mais padding em telas maiores */
-    }
-    .hero-section img {
-        max-height: 60vh;
-        margin-bottom: 30px;
-    }
+  .hero-text-block {
+    margin-top: 30px;
+    padding: 30px 50px;
+  }
+  .hero-section img {
+    max-height: 60vh;
+    margin-bottom: 30px;
+  }
 }
 
 /* Games Carousel Section */
@@ -181,18 +231,16 @@ section {
 .games-carousel-section .carousel-item .row {
   align-items: center;
   padding: 10px 0;
-  /* Ensure flex behavior for alignment */
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap if space is too small */
+  flex-wrap: wrap;
 }
 
-/* Custom class for image responsiveness within the carousel */
 .games-carousel-section .carousel-item .img-fluid-custom {
-  max-height: 55vh; /* Keep original max-height */
-  width: auto; /* Allow width to adjust based on height and aspect ratio */
+  max-height: 55vh;
+  width: auto;
   object-fit: contain;
-  margin-bottom: 20px; /* Space for mobile */
-  max-width: 100%; /* Ensure image does not overflow its container */
+  margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .game-card {
@@ -206,8 +254,8 @@ section {
   flex-direction: column;
   justify-content: space-between;
   min-height: 200px;
-  height: 100%; /* Make sure card takes full height of its column */
-  width: 100%; /* Make sure card takes full width of its column */
+  height: 100%;
+  width: 100%;
 }
 
 .game-card .btn-primary {
@@ -235,15 +283,14 @@ section {
     padding: 60px 0;
   }
   .games-carousel-section .carousel-item .img-fluid-custom {
-    max-height: 65vh; /* Adjust max-height for desktop */
-    margin-bottom: 0; /* Remove margin for desktop */
+    max-height: 65vh;
+    margin-bottom: 0;
   }
-  /* Ensure content is centered vertically in its columns on larger screens */
   .games-carousel-section .carousel-item .col-lg-6,
   .games-carousel-section .carousel-item .col-lg-4 {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center image horizontally */
+    justify-content: center;
   }
 }
 
@@ -290,32 +337,4 @@ section {
 
 .footer a:hover {
   color: var(--hover-action);
-}
-
-/* Estilo base do ícone do hambúrguer (três barras) */
-/* Remova o !important daqui, pois queremos que esta seja a imagem padrão */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dadada' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    transition: background-image 0.3s ease-in-out; /* Adiciona transição para animação suave */
-}
-
-/* NOVO e CORRETO ESTILO para o ícone quando o menu está aberto (transforma em X) */
-/* Este seletor garante que o X só aparece quando o elemento #navbarNav TEM a classe 'show' */
-/* e ele targeta o .navbar-toggler-icon dentro do botão */
-.navbar-collapse.show + .navbar-toggler .navbar-toggler-icon,
-.navbar-nav.show + .navbar-toggler .navbar-toggler-icon, /* Adicione esta linha se a estrutura do seu nav-link causar problemas */
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23dadada' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M23 7L7 23M7 7l16 16'/%3e%3c/svg%3e") !important; /* Mantenha o !important aqui */
-}
-
-
-/* Estilo da borda do botão do toggler (opcional, mas bom para consistência) */
-.navbar-toggler {
-    border-color: var(--border-shadow);
-    transition: all 0.3s ease-in-out; /* Transição geral para o botão */
-}
-
-/* Estilo do botão do toggler quando ele está em foco (acessibilidade) */
-.navbar-toggler:focus {
-    box-shadow: 0 0 0 .25rem rgba(218, 218, 218, .5); /* Cor do contorno de foco, transparente */
 }
