@@ -82,7 +82,7 @@ section {
 
 /* Hero Section */
 .hero-section {
-    background-image: url('tomato-entertainment/assets/img/tomato_bg_red.jpg'); /* Fundo com imagem */
+    background-image: url('assets/img/tomato_bg_red.jpg'); /* Fundo com imagem */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
