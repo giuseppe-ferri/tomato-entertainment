@@ -140,13 +140,18 @@ section {
 .games-carousel-section .carousel-item .row {
     align-items: center;
     padding: 10px 0;
+    /* Ensure flex behavior for alignment */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap if space is too small */
 }
 
-.games-carousel-section .carousel-item img {
-    max-height: 55vh;
-    width: auto;
+/* Custom class for image responsiveness within the carousel */
+.games-carousel-section .carousel-item .img-fluid-custom {
+    max-height: 55vh; /* Keep original max-height */
+    width: auto; /* Allow width to adjust based on height and aspect ratio */
     object-fit: contain;
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Space for mobile */
+    max-width: 100%; /* Ensure image does not overflow its container */
 }
 
 .game-card {
@@ -160,6 +165,8 @@ section {
     flex-direction: column;
     justify-content: space-between;
     min-height: 200px;
+    height: 100%; /* Make sure card takes full height of its column */
+    width: 100%; /* Make sure card takes full width of its column */
 }
 
 .game-card .btn-primary {
@@ -186,9 +193,16 @@ section {
     .games-carousel-section {
         padding: 60px 0;
     }
-    .games-carousel-section .carousel-item img {
-        max-height: 65vh;
-        margin-bottom: 0;
+    .games-carousel-section .carousel-item .img-fluid-custom {
+        max-height: 65vh; /* Adjust max-height for desktop */
+        margin-bottom: 0; /* Remove margin for desktop */
+    }
+    /* Ensure content is centered vertically in its columns on larger screens */
+    .games-carousel-section .carousel-item .col-lg-6,
+    .games-carousel-section .carousel-item .col-lg-4 {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center image horizontally */
     }
 }
 
