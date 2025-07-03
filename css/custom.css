@@ -53,7 +53,7 @@ body:not(.splash-active) {
 
 /* NOVA SEÇÃO: Splash/Introdução - Correções aplicadas aqui */
 .intro-splash-section {
-  background-color: var(--secondary-bg);
+  background-color: var(--primary-bg);
   /* As propriedades abaixo garantem centralização perfeita em qualquer dispositivo */
   position: fixed;
   top: 50%; /* Posiciona o topo do elemento na metade da altura da viewport */
@@ -382,6 +382,20 @@ section {
 @media (min-width: 992px) {
   .about-section .row {
     flex-direction: row; /* Volta ao layout de linha em telas maiores */
+  }
+}
+
+/* New CSS for About Us text */
+.about-text-content {
+  text-align: justify; /* Justifica o texto */
+  font-size: 1.15rem; /* Aumenta o tamanho da fonte. 1rem é o tamanho base do HTML, 1.15 é 15% maior. Ajuste conforme necessário. */
+  line-height: 1.8; /* Aumenta o espaçamento entre as linhas para melhor leitura com fonte maior */
+}
+
+/* Adjust font size for larger screens if needed, using a media query */
+@media (min-width: 768px) {
+  .about-text-content {
+    font-size: 1.25rem; /* Um pouco maior em telas maiores */
   }
 }
 
