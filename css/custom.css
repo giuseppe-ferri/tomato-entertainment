@@ -37,7 +37,6 @@ body {
   color: var(--primary-text);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden; /* Garante que não haja scroll horizontal indesejado */
-  /* Removido padding-top aqui para acomodar a splash screen que é `fixed` */
 }
 
 /* Adiciona padding-top ao body para evitar que o conteúdo fique abaixo do navbar */
@@ -52,17 +51,22 @@ body:not(.splash-active) {
   }
 }
 
-/* NOVA SEÇÃO: Splash/Introdução */
+/* NOVA SEÇÃO: Splash/Introdução - Correções aplicadas aqui */
 .intro-splash-section {
   background-color: var(--secondary-bg);
-  height: 100vh;
-  width: 100%;
+  /* As propriedades abaixo garantem centralização perfeita em qualquer dispositivo */
+  position: fixed;
+  top: 50%; /* Posiciona o topo do elemento na metade da altura da viewport */
+  left: 50%; /* Posiciona a esquerda do elemento na metade da largura da viewport */
+  transform: translate(-50%, -50%); /* Move o elemento para trás em 50% da sua própria largura e altura, centralizando-o */
+  width: 100vw; /* Garante que a área de splash ocupe 100% da largura da viewport */
+  height: 100vh; /* Garante que a área de splash ocupe 100% da altura da viewport */
+
+  /* Centraliza o conteúdo (logo) dentro desta seção */
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
+
   z-index: 9999;
   opacity: 1;
   visibility: visible;
@@ -77,9 +81,9 @@ body:not(.splash-active) {
 .splash-logo {
   max-width: 100%;
   max-height: 100%;
-  width: 100%; /* Make the image take full width of its container */
-  height: 100%; /* Make the image take full height of its container */
-  object-fit: contain; /* Ensures the entire image is visible, scaling it down if necessary, without cropping. */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Navbar */
@@ -335,7 +339,6 @@ section {
 .about-section {
   background-color: var(--secondary-accent);
   padding: 40px 0;
-  /* Removendo height/min-height fixo aqui também */
   min-height: auto;
   height: auto;
 }
@@ -351,10 +354,6 @@ section {
 }
 
 .about-section .container {
-  /* Garante que o container não force uma largura maior que a tela */
-  /* Bootstrap's .container já é 100% largura em mobile e tem padding */
-  /* max-width: 100%; remova se já tem .container padrão do bootstrap */
-  /* padding-left: 20px; padding-right: 20px; já tem no section */
   box-sizing: border-box;
 }
 
@@ -377,7 +376,6 @@ section {
 }
 
 .about-section .row {
-  /* Permite que as colunas se empilhem corretamente em mobile */
   flex-direction: column;
 }
 
