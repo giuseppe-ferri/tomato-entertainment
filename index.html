@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/custom.css" />
-    <link rel="icon" href="assets/img/tomato_img.png" type="image/png">
+    <link rel="icon" href="assets/img/tomato_img.png" type="image/png" />
     <meta name="google-site-verification" content="MyKWF_7_ZgUC0LZpFU67-nPV-99BVJK9_E1rVPOn2WM" />
   </head>
 
@@ -184,6 +184,32 @@
                   </div>
                 </div>
               </div>
+              <div class="carousel-item">
+                <div class="row justify-content-center align-items-center g-4">
+                  <div class="col-12 col-lg-6 d-flex justify-content-center">
+                    <img
+                      src="assets/img/veil_of_agony.jpg"
+                      class="d-block rounded shadow img-fluid-custom"
+                      alt="Veil of Agony"
+                    />
+                  </div>
+                  <div class="col-12 col-lg-4 d-flex">
+                    <div class="game-card p-4 w-100">
+                      <h3 class="card-title mb-3">Veil of Agony</h3>
+                      <p class="card-text mb-4 text-secondary-text">
+                        Escape de um castelo ancestral e fuja de uma criatura
+                        misteriosa como um prisioneiro amaldiçoado!
+                      </p>
+                      <button
+                        class="btn btn-primary btn-lg disabled mt-auto"
+                        disabled
+                      >
+                        Em breve
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <button
               class="carousel-control-prev"
@@ -218,18 +244,30 @@
           <div class="row align-items-center g-4">
             <div class="col-12 col-lg-6 text-center text-lg-start">
               <h2 class="mb-4 text-white"><storng>Sobre Nós</storng></h2>
-              <p class="lead text-white about-text-content"><strong>
-                Bem-vindo à Tomato Entertainment! Somos uma empresa brasileira dedicada ao desenvolvimento de jogos independentes para computador e mobile. Acreditamos profundamente no poder dos jogos para inspirar, entreter e conectar pessoas.
-              </strong>
-              </p>
-              <p class="lead text-white about-text-content"><strong>
-                A Tomato Entertainment foi fundada a partir da união e do esforço de três desenvolvedores que compartilhavam a visão de transformar ideias em realidade digital.
-              </strong>
+              <p class="lead text-white about-text-content">
+                <strong
+                  >Bem-vindo à Tomato Entertainment! Somos uma empresa brasileira
+                  dedicada ao desenvolvimento de jogos independentes para
+                  computador e mobile. Acreditamos profundamente no poder dos
+                  jogos para inspirar, entreter e conectar pessoas.</strong
+                >
               </p>
               <p class="lead text-white about-text-content">
-                <strong>
-                  Este site é a nossa vitrine e o nosso canal direto com você, nosso público. Aqui, você encontrará as últimas notícias sobre nossos projetos, informações detalhadas sobre nossos jogos, e links diretos para as plataformas onde você pode adquiri-los ou baixá-los. Convidamos você a explorar nosso universo e a se juntar à nossa jornada.
-                </strong>
+                <strong
+                  >A Tomato Entertainment foi fundada a partir da união e do
+                  esforço de três desenvolvedores que compartilhavam a visão de
+                  transformar ideias em realidade digital.</strong
+                >
+              </p>
+              <p class="lead text-white about-text-content">
+                <strong
+                  >Este site é a nossa vitrine e o nosso canal direto com você,
+                  nosso público. Aqui, você encontrará as últimas notícias sobre
+                  nossos projetos, informações detalhadas sobre nossos jogos, e
+                  links diretos para as plataformas onde você pode adquiri-los
+                  ou baixá-los. Convidamos você a explorar nosso universo e a se
+                  juntar à nossa jornada.</strong
+                >
               </p>
             </div>
             <div class="col-12 col-lg-6 text-center">
@@ -263,11 +301,22 @@
         </p>
         <hr class="my-4" style="border-color: var(--border-shadow)" />
         <div class="footer-links mb-3">
-      <a href="pages/privacy-policy.html" class="text-secondary-text mx-2">Política de Privacidade</a> |
-      <a href="pages/terms-of-use.html" class="text-secondary-text mx-2">Termos de Uso</a> |
-      <a href="pages/transparency.html" class="text-secondary-text mx-2">Transparência</a> |
-      <a href="pages/disclaimer.html" class="text-secondary-text mx-2">Isenção de Responsabilidade</a>
-    </div>
+          <a href="pages/privacy-policy.html" class="text-secondary-text mx-2"
+            >Política de Privacidade</a
+          >
+          |
+          <a href="pages/terms-of-use.html" class="text-secondary-text mx-2"
+            >Termos de Uso</a
+          >
+          |
+          <a href="pages/transparency.html" class="text-secondary-text mx-2"
+            >Transparência</a
+          >
+          |
+          <a href="pages/disclaimer.html" class="text-secondary-text mx-2"
+            >Isenção de Responsabilidade</a
+          >
+        </div>
         <p class="mb-0 text-secondary-text">&copy; Copyright 2025</p>
       </div>
     </footer>
@@ -294,16 +343,18 @@
         });
 
         // Script para a seção de splash desaparecer
-        const splashSection = document.getElementById('intro-splash-section');
+        const splashSection = document.getElementById("intro-splash-section");
         if (splashSection) {
-            setTimeout(() => {
-                splashSection.classList.add('fade-out');
-                // Opcional: Remove o elemento do DOM completamente após a transição para liberar recursos
-                splashSection.addEventListener('transitionend', () => {
-                    splashSection.remove();
-                });
+          setTimeout(
+            () => {
+              splashSection.classList.add("fade-out");
+              // Opcional: Remove o elemento do DOM completamente após a transição para liberar recursos
+              splashSection.addEventListener("transitionend", () => {
+                splashSection.remove();
+              });
             },
-            4000); // Fades out after 4 seconds (4000 milliseconds). Ajuste este valor conforme necessário.
+            4000
+          ); // Fades out after 4 seconds (4000 milliseconds). Ajuste este valor conforme necessário.
         }
       });
     </script>
