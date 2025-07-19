@@ -9,23 +9,37 @@
 
 ## Cutscenes
 ### Cena 1 - Início
-    Você acorda no chão gelado de uma cela escura, o ar fedendo a mofo e sangue, sons de água gotejando em algum canto distante. Gritos desesperados ecoam pelo corredor, cortando o silêncio. Um prisioneiro surge diante das grades, se arrastando, deixando um rastro de sangue. Seus olhos arregalados imploram por ajuda, mas ele só gorgoleja antes de sumir na escuridão.
+Você acorda no chão gelado de uma cela escura, o ar fedendo a mofo e sangue, sons de água gotejando em algum canto distante. Gritos desesperados ecoam pelo corredor, cortando o silêncio. Um prisioneiro surge diante das grades, se arrastando, deixando um rastro de sangue. Seus olhos arregalados imploram por ajuda, mas ele só gorgoleja antes de sumir na escuridão.
 
-    Passos lentos e pesados se aproximam. Uma criatura alta, coberta por um véu esfarrapado, passa pela sua cela, arrastando uma maça ensanguentada que pinga no chão. Ela segue o prisioneiro. Silêncio. Então, um grito horrível, seguido por três baques úmidos: thud, thud, thud. Um som de carne esmagada.
+Passos lentos e pesados se aproximam. Uma criatura alta, coberta por um véu esfarrapado, passa pela sua cela, arrastando uma maça ensanguentada que pinga no chão. Ela segue o prisioneiro. Silêncio. Então, um grito horrível, seguido por três baques úmidos: thud, thud, thud. Um som de carne esmagada.
 
-    Você encontra um buraco estreito na parede. Rasteja por ele, o túnel apertado e escuro, com apenas fiapos de luar iluminando o caminho. O ar é sufocante, e você jura ouvir algo rastejando atrás de você. Chega ao fim do túnel e vê o prisioneiro — ou o que sobrou dele. O corpo está completamente destroçado e irreconhecível, membros retorcidos, crânio afundado e sangue espalhado por toda parte.
+Você encontra um buraco estreito na parede. Rasteja por ele, o túnel apertado e escuro, com apenas fiapos de luar iluminando o caminho. O ar é sufocante, e você jura ouvir algo rastejando atrás de você. Chega ao fim do túnel e vê o prisioneiro — ou o que sobrou dele. O corpo está completamente destroçado e irreconhecível, membros retorcidos, crânio afundado e sangue espalhado por toda parte.
 
-    OBS:Você encontra uma tocha apagada sobre um balcão. Olha para a lareira; há um brilho sutil contornando o objeto, indicando onde você pode acender a tocha.
+OBS:Você encontra uma tocha apagada sobre um balcão. Olha para a lareira; há um brilho sutil contornando o objeto, indicando onde você pode acender a tocha.
 
-    Você está ferido, ao caminhar pelo corredor encontra uma bandagem para se curar.
+Você está ferido, ao caminhar pelo corredor encontra uma bandagem para se curar.
 
 ### Cena 2 - Fim
-    Com os três rituais concluídos, um estalo metálico ecoa: a última porta se abre. A liberdade está ao seu alcance. Você corre por um corredor estreito em direção a uma fraca luz — um vislumbre da floresta.
+Com os três rituais concluídos, um estalo metálico ecoa: a última porta se abre. A liberdade está ao seu alcance. Você corre por um corredor estreito em direção a uma fraca luz — um vislumbre da floresta.
 
-    Mas, antes de sair, uma sombra imensa bloqueia a saída. O Executor surge, impedindo seu caminho. A perseguição é implacável. Com um último esforço, você o despista, volta rapidamente e finalmente escapa.
+Mas, antes de sair, uma sombra imensa bloqueia a saída. O Executor surge, impedindo seu caminho. A perseguição é implacável. Com um último esforço, você o despista, volta rapidamente e finalmente escapa.
 
 ## Mêcanica Geral
 * O jogador pode pegar um objeto por vez (totem, jarras com óleo, chave, bandagem e tijolo(opcional))
+* **Jarro com óleo:** 
+    * 5 unidades espalhadas aleatoriamente.
+    * ao consumir o óleo do jarro, o jarro desaparece.
+* **Totens e chaves:**
+    * 3 unidades posicionadas em lugares fixos.
+    * Ao destrancar a cela com a chave, a chave desaparece.
+    * Ao realizar o ritual, o totem ficará com um
+* **Bandagem:**
+    * 2 unidades espalhadas aleatoriamente.
+    * Ao consumir a bandagem, a bandagem utilizada desaparece e outra unidade surge aleatoriamente, mantendo 2 unidades pelo mapa.
+* **Tijolo (opcional):**
+    * 10 Unidades espalhadas aleatoriamente.
+    * Ao arremessar o tijolo, ele quebra, fazendo barulho e atraindo o executor no local do impacto, o tijolo desaparece.
+
 ### Tocha
 * Brilho da tocha diminui a cada 5 minutos:
     * Forte
@@ -35,21 +49,23 @@
 
 ## Mecânica do ritual
 * Existem três altares, cada um com uma marca única.
-* Existem três totens, protegidos por obstáculos que exigem chaves e/ou alavancas para acesso.
+* Existem três totens, protegidos por obstáculos que exigem chaves para acesso.
 * Cada totem deve ser queimado no altar correspondente.
 * Para cada parte do ritual concluído, um portão se abre, possibilitando encontrar uma chave para desbloquear o próximo totem.
 * Etapas do ritural:
     1. Colocar o totem sobre o altar
     2. Despejar o jarro de óleo sobre o totem
     3. Incinear o totem com a tocha
+* Enquanto o totem é incinerado, as chamas podem realçar cores como azul, verde ou roxo. Produzir efeitos sonoros de gritos, como se o totem tivesse vida.
+* Após o totem ser incinerado, ele terá uma aparência preta com fissuras vermelhas brilhando , saindo fumaça,indicando que o totem foi consumido.
 * Cada ritual completado aumenta o nível do Executor em +1.
 * Ritual concluído = Executor em estado de frenesi.
 ### Totem 1
-* Em um corredor
+* Trancado em uma cela.
 ### Totem 2
-* Dentro de um baú
+* Trancado em uma cela.
 ### Totem 3
-* Em uma cela com dois totens falsos. Todos têm a marca borrada.
+* Trancado em uma cela com dois totens falsos. Todos têm a marca borrada.
 
 ### Executor
 * **Área de foco:** Se o jogador entrar nela, o Executor sai do modo patrulha e inicia perseguição.
