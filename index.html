@@ -11,8 +11,11 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/custom.css" />
-    <link rel="icon" href="assets/img/icon.ico" type="image/x-icon" />
-    <meta name="google-site-verification" content="MyKWF_7_ZgUC0LZpFU67-nPV-99BVJK9_E1rVPOn2WM" />
+    <link rel="icon" href="assets/img/icon.ico" />
+    <meta
+      name="google-site-verification"
+      content="MyKWF_7_ZgUC0LZpFU67-nPV-99BVJK9_E1rVPOn2WM"
+    />
   </head>
 
   <body>
@@ -199,7 +202,8 @@
                     <div class="game-card p-4 w-100">
                       <h3 class="card-title mb-3">Veil of Agony</h3>
                       <p class="card-text mb-4 text-secondary-text">
-                        Assuma o papel de um prisioneiro e escape da masmorra. Mas cuidado... algo se esconde nas sombras
+                        Assuma o papel de um prisioneiro e escape da masmorra.
+                        Mas cuidado... algo se esconde nas sombras
                       </p>
                       <button
                         class="btn btn-primary btn-lg disabled mt-auto"
@@ -247,10 +251,10 @@
               <h2 class="mb-4 text-white"><storng>Sobre Nós</storng></h2>
               <p class="lead text-white about-text-content">
                 <strong
-                  >Bem-vindo à Tomato Entertainment! Somos uma empresa brasileira
-                  dedicada ao desenvolvimento de jogos independentes para
-                  computador e mobile. Acreditamos profundamente no poder dos
-                  jogos para inspirar, entreter e conectar pessoas.</strong
+                  >Bem-vindo à Tomato Entertainment! Somos uma empresa
+                  brasileira dedicada ao desenvolvimento de jogos independentes
+                  para computador e mobile. Acreditamos profundamente no poder
+                  dos jogos para inspirar, entreter e conectar pessoas.</strong
                 >
               </p>
               <p class="lead text-white about-text-content">
@@ -346,16 +350,13 @@
         // Script para a seção de splash desaparecer
         const splashSection = document.getElementById("intro-splash-section");
         if (splashSection) {
-          setTimeout(
-            () => {
-              splashSection.classList.add("fade-out");
-              // Opcional: Remove o elemento do DOM completamente após a transição para liberar recursos
-              splashSection.addEventListener("transitionend", () => {
-                splashSection.remove();
-              });
-            },
-            4000
-          ); // Fades out after 4 seconds (4000 milliseconds). Ajuste este valor conforme necessário.
+          setTimeout(() => {
+            splashSection.classList.add("fade-out");
+            // Opcional: Remove o elemento do DOM completamente após a transição para liberar recursos
+            splashSection.addEventListener("transitionend", () => {
+              splashSection.remove();
+            });
+          }, 4000); // Fades out after 4 seconds (4000 milliseconds). Ajuste este valor conforme necessário.
         }
       });
     </script>
