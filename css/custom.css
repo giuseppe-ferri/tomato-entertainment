@@ -152,21 +152,23 @@ section {
 
 /* Hero Section */
 .hero-section {
-  background-image: url("../assets/img/tomato_bg_red.jpg");
+  /* background-image: url("../assets/img/tomato_bg_red.jpg"); */
+  background-color: var(--surface-color);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* A Home deve ter altura fixa para preencher a tela */
-  height: calc(100vh - var(--navbar-height));
-  min-height: calc(
-    100vh - var(--navbar-height)
-  ); /* Garante que não encolha demais */
+  height: calc(100vh - var(--navbar-height)); /* Altura fixa baseada na viewport menos a navbar */
+  max-height: calc(100vh - var(--navbar-height)); /* Limita a altura máxima */
+  overflow: hidden; /* Impede que o conteúdo vaze para fora da seção */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
   .hero-section {
     height: calc(100vh - var(--navbar-height-lg));
-    min-height: calc(100vh - var(--navbar-height-lg));
+    max-height: calc(100vh - var(--navbar-height-lg));
   }
 }
 
@@ -179,21 +181,21 @@ section {
   padding: 20px;
   max-width: 800px;
   width: 100%;
-  height: 100%; /* Hero content preenche a Hero section */
+  height: 100%; /* Preenche a seção */
   box-sizing: border-box;
 }
 
 .hero-text-block {
-  background-color: var(--primary-accent); /* Usando a variável */
+  background-color: var(--primary-accent);
   padding: 20px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  margin-top: 20px;
+  margin-top: 10px; /* Reduzido para compensar a imagem menor */
   max-width: 100%;
   box-sizing: border-box;
   color: var(--primary-text);
-  max-height: 60vh; /* Permite que o texto role se for muito longo */
-  overflow-y: auto;
+  max-height: 60vh; /* Aumentado para reduzir a necessidade de scroll */
+  overflow-y: auto; /* Scroll vertical apenas se necessário */
 }
 
 .hero-text-block h1 {
@@ -207,21 +209,21 @@ section {
 .hero-section img {
   max-width: 90%;
   height: auto;
-  max-height: 40vh; /* Limita a altura da imagem para não empurrar o conteúdo */
+  max-height: 30vh; /* Imagem menor para liberar espaço */
   object-fit: contain;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduzido para manter o layout compacto */
 }
 
 @media (min-width: 768px) {
   .hero-text-block {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 30px 50px;
-    max-height: none; /* Remove limite de altura em telas maiores */
-    overflow-y: visible;
+    max-height: 70vh; /* Aumentado para desktop */
+    overflow-y: auto; /* Mantém o scroll vertical */
   }
   .hero-section img {
-    max-height: 50vh;
-    margin-bottom: 30px;
+    max-height: 40vh; /* Imagem um pouco maior em desktop, mas ainda menor que antes */
+    margin-bottom: 20px;
   }
 }
 
