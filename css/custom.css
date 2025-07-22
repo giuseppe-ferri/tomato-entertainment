@@ -342,8 +342,7 @@ section {
 
 /* About Us Section */
 .about-section {
-  background-color: var(--primary-text);
-  /* background-color: var(--secondary-accent); */
+  background-color: var(--secondary-accent);
   padding: 40px 0;
   min-height: auto;
   height: auto;
@@ -396,11 +395,11 @@ section {
   text-align: justify; /* Justifica o texto */
   font-size: 1.15rem; /* Aumenta o tamanho da fonte. 1rem é o tamanho base do HTML, 1.15 é 15% maior. Ajuste conforme necessário. */
   line-height: 1.8; /* Aumenta o espaçamento entre as linhas para melhor leitura com fonte maior */
-  color: var(--secondary-bg) !important;
+  color: var(--primary-text) !important;
 }
 
 .sobre-nos {
-  color: var(--secondary-bg) !important;
+  color: var(--primary-text) !important;
 }
 
 /* Adjust font size for larger screens if needed, using a media query */
