@@ -152,8 +152,8 @@ section {
 
 /* Hero Section */
 .hero-section {
-  /* background-image: url("../assets/img/tomato_bg_red.jpg"); */
-  background-color: var(--surface-color);
+  background-image: url("../assets/img/tomato_bg_red.jpg");
+  /* background-color: var(--surface-color); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
